@@ -1,6 +1,6 @@
 #!/Users/norbertkirkpatrick/Documents/Python/Python-Build-10Apps/App7-wizard-battle/venv/bin/python
 
-from actors import Wizard, Creature
+from actors import Wizard, Creature, SmallAnimal, Dragon
 import random
 import time
 
@@ -17,10 +17,10 @@ def print_header():
 def game_loop():
 
     creatures = [
-        Creature('Toad', 1),
+        SmallAnimal('Toad', 1),
         Creature('Tiger', 12),
-        Creature('Bat', 3),
-        Creature('Dragon', 50),
+        SmallAnimal('Bat', 3),
+        Dragon('Dragon', 50, 75, True),
         Creature('Evil Wizard', 1000)
     ]
 
@@ -52,7 +52,9 @@ def game_loop():
             print('Ok, exiting game... bye!')
             break
 
-        print()
+        if not creatures:
+            print("You defeated all the creatures, well done!")
 
+        
 if __name__ == '__main__':
     main()
